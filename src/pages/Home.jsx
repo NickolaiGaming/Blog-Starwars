@@ -32,7 +32,7 @@ const Home = () => {
                                                             Hair color: {people?.hair_color} <br />
                                                             Birth Year: {people?.birth_year}</p> <br />
                                         <Link  className="btn btn-primary" to={"/detailedpeople/"+numero}>More Details</Link>
-                                        <button className='btn btn-warning'>Favorites</button>
+                                        <button className='btn btn-warning' onClick={() => actions.addFavorites(people.name , numero)}>Favorites</button>
                                     </div>
                             </div>
                         )

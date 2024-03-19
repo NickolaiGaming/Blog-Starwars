@@ -9,7 +9,7 @@ const getStore = ({ getStore, getActions, setStore }) => {
             people: null,
             planets: null,
             vehicles: null,
-
+            favorites: [] ,
             details: null
         },
         actions: {
@@ -45,6 +45,12 @@ const getStore = ({ getStore, getActions, setStore }) => {
                 fetch(urls)
                 .then(response => response.json())
                 .then(datos => setStore({ details: datos }))
+            },
+            addFavorites: (name , id) => {
+                const newFavorite = {name,id}
+                const favoritos = getStore()
+                const newFavorites = [...favoritos.favorites, newFavorite]
+                setStore({favorites: newFavorites})
             },
             
             

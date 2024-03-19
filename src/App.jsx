@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import injectContext from './store/AppContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import DetailedPeople from './pages/DetailedPeople';
 import DetailedPlanets from './pages/DetailedPlanets';
 import DetailedVehicles from './pages/DetailedVehicles';
+import { Context } from './store/AppContext';
+
 
 const App = () => {
     
-    
+    const { store, actions } = useContext(Context)
+
     return (
         <>
             <nav class="navbar navbar-expand bg-body-secondary">
@@ -23,12 +26,14 @@ const App = () => {
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle bg-primary text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Favorite
+                                    Favorites {store?.favorites?.length}
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    {store?.favorites?.map(({name,id}) => {
+                                        return (
+                                            <li>{name}<button className='btn btn-danger' >Delete</button></li>
+                                        )
+                                    })}
                                 </ul>
                             </li>
                         </ul>

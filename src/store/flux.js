@@ -46,14 +46,16 @@ const getStore = ({ getStore, getActions, setStore }) => {
                 .then(response => response.json())
                 .then(datos => setStore({ details: datos }))
             },
-            addFavorites: (name , id) => {
-                const newFavorite = {name,id}
+            addFavorites: (name , index) => {
+                const newFavorite = {name,index}
                 const favoritos = getStore()
                 const newFavorites = [...favoritos.favorites, newFavorite]
                 setStore({favorites: newFavorites})
             },
-            
-            
+            deleteFavorites: (index) => {
+                const favoritos = getStore()
+                setStore({favorites: favoritos.favorites.toSpliced(index,1)})
+            },
         }
     }
 }

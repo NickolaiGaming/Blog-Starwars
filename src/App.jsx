@@ -29,9 +29,9 @@ const App = () => {
                                     Favorites {store?.favorites?.length}
                                 </a>
                                 <ul class="dropdown-menu">
-                                    {store?.favorites?.map(({name,id}) => {
+                                    {store?.favorites?.map(({name}, index) => {
                                         return (
-                                            <li>{name}<button className='btn btn-danger' >Delete</button></li>
+                                            <li key={index}>{name}<button className='btn btn-danger' onClick={() => actions.deleteFavorites(index)}>Delete</button></li>
                                         )
                                     })}
                                 </ul>

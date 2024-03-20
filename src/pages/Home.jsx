@@ -32,7 +32,7 @@ const Home = () => {
                                                             Hair color: {people?.hair_color} <br />
                                                             Birth Year: {people?.birth_year}</p> <br />
                                         <Link  className="btn btn-primary" to={"/detailedpeople/"+numero}>More Details</Link>
-                                        <button className='btn btn-warning' onClick={() => actions.addFavorites(people.name , numero)}>Favorites</button>
+                                        <button className='btn btn-warning' onClick={() => actions.addFavorites(people.name)}>Favorites</button>
                                     </div>
                             </div>
                         )
@@ -55,7 +55,7 @@ const Home = () => {
                                         <h5 class="card-title">{planets?.name}</h5>
                                         <p class="card-text"> </p> 
                                         <Link  className="btn btn-primary" to={"/detailedplanets/"+numero}>More Details</Link>
-                                        <button className='btn btn-warning'>Favorites</button>
+                                        <button className='btn btn-warning' onClick={() => actions.addFavorites(planets.name)}>Favorites</button>
                                     </div>
                             </div>
                         )
@@ -78,7 +78,7 @@ const Home = () => {
                                         <h5 class="card-title">{vehicles?.name}</h5>
                                         <p class="card-text"> </p> 
                                         <Link  className="btn btn-primary" to={"/detailedvehicles/"+numero}>More Details</Link>
-                                        <button className='btn btn-warning'>Favorites</button>
+                                        <button className='btn btn-warning' onClick={() => actions.addFavorites(vehicles.name)}>Favorites</button>
                                     </div>
                             </div>
                         )
